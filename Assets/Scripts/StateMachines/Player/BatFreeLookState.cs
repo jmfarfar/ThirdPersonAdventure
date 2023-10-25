@@ -1,0 +1,100 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Video;
+
+public class BatFreeLookState : PlayerBaseState
+{
+    private float colliderVerticalPosition, colliderHeight;
+    private Vector3 movement;
+    public BatFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine)
+    {
+    }
+
+    public override void Enter()
+    {
+        stateMachine.InputReader.ChangeCharacterEvent += OnChangeCharacterDeborah;
+
+        stateMachine.ForceReceiver.enabled = false;
+
+        colliderVerticalPosition = stateMachine.CharacterController.center.y;
+        colliderHeight = stateMachine.CharacterController.height;
+
+        stateMachine.CharacterController.center = new Vector3(0f, 1.3f);
+        stateMachine.CharacterController.height = 0.4f;
+
+        base.Enter();
+
+        ChangeModel();
+
+        stateMachine.ChangeToBatEvent?.Invoke(true);
+    }
+
+    public override void Tick(float deltaTime)
+    {
+        movement = Fly();
+
+        stateMachine.CharacterController.Move(movement * stateMachine.BatMovementSpeed * Time.deltaTime);
+
+        if (movement != Vector3.zero)
+        {
+            FaceMovementDirection(movement);
+        }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        ChangeModel();
+
+        stateMachine.ChangeToBatEvent?.Invoke(false);
+
+        stateMachine.CharacterController.center = new Vector3(0f, colliderVerticalPosition);
+        stateMachine.CharacterController.height = colliderHeight;
+
+        stateMachine.InputReader.ChangeCharacterEvent -= OnChangeCharacterDeborah;
+
+        stateMachine.ForceReceiver.enabled = true;
+
+        Vector3 forwardDirection = stateMachine.transform.forward;
+        forwardDirection.y = 0f;
+
+        stateMachine.transform.rotation = Quaternion.LookRotation(forwardDirection);
+    }
+
+    private Vector3 Fly()
+    {
+        Vector3 forward = stateMachine.MainCameraTransform.forward;
+        Vector3 right = stateMachine.MainCameraTransform.right;
+
+        Vector3 movement;
+
+        Gamepad gamepad = stateMachine.InputReader.CurrentGamepad;
+
+        if (gamepad != null)
+        {
+            Vector2 input = gamepad.leftStick.ReadValue();
+
+            movement = forward * input.y +
+                right * input.x;
+
+            if (input.magnitude > 0.1f)
+            {
+                return movement;
+            }
+        }
+
+        movement = forward * stateMachine.InputReader.MovementValue.y +
+            right * stateMachine.InputReader.MovementValue.x;
+
+        return movement;
+    }
+
+    private void ChangeModel()
+    {
+        stateMachine.deborahModel.SetActive(stateMachine.batModel.activeSelf);
+        stateMachine.batModel.SetActive(!stateMachine.deborahModel.activeSelf);
+    }
+}

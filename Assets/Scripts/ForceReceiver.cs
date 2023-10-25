@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ForceReceiver : MonoBehaviour
@@ -34,5 +35,10 @@ public class ForceReceiver : MonoBehaviour
     public void AddForce(Vector3 force)
     {
         impact += force;
+    }
+
+    public void OnDisable()
+    {
+        fallingVelocity = 0f;
     }
 }

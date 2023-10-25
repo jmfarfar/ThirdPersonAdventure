@@ -7,6 +7,8 @@ using Cinemachine;
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField] public InputReader InputReader { get; private set; }
+    [field: SerializeField] public GameObject deborahModel { get; private set; }
+    [field: SerializeField] public GameObject batModel { get; private set; }
     [field: SerializeField] public CharacterController CharacterController { get; private set; }
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public Targeter Targeter { get; set; }
@@ -18,6 +20,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float FreeLookMovementSpeed { get; private set; }
     [field: SerializeField] public float TargetingMovementSpeed { get; private set; }
     [field: SerializeField] public float BlockingMovementSpeed { get; private set; }
+    [field: SerializeField] public float BatMovementSpeed { get; private set; }
     [field: SerializeField] public float DodgeSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
@@ -27,6 +30,8 @@ public class PlayerStateMachine : StateMachine
 
     public bool IsIdle { get; set; }
     public Attack CurrentAttack { get; set; }
+
+    public Action<bool> ChangeToBatEvent;
 
     private void OnEnable()
     {

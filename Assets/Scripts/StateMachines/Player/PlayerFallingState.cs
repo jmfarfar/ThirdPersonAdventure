@@ -14,6 +14,8 @@ public class PlayerFallingState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(fallingHash, 0.1f);
+
+        stateMachine.InputReader.ChangeCharacterEvent += OnChangeCharacterBat;
     }
     public override void Tick(float deltaTime)
     {
@@ -27,6 +29,7 @@ public class PlayerFallingState : PlayerBaseState
 
     public override void Exit()
     {
+        stateMachine.InputReader.ChangeCharacterEvent -= OnChangeCharacterBat;
     }
 
 }
