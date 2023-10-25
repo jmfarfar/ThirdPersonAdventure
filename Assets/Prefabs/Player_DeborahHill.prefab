@@ -2301,6 +2301,11 @@ PrefabInstance:
       objectReference: {fileID: 5256939439853624319}
     - target: {fileID: 8373569497116376336, guid: 76399c438c68021428a72f4455da3d26,
         type: 3}
+      propertyPath: <BatAnimator>k__BackingField
+      value: 
+      objectReference: {fileID: 7429372607844111328}
+    - target: {fileID: 8373569497116376336, guid: 76399c438c68021428a72f4455da3d26,
+        type: 3}
       propertyPath: <deborahModel>k__BackingField
       value: 
       objectReference: {fileID: 8529625476831510527}
@@ -2423,6 +2428,12 @@ Transform:
 --- !u!1 &5256939439853624319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6803925895987618354, guid: e56ca47cee0046709a5fe8c787cee221,
+    type: 3}
+  m_PrefabInstance: {fileID: 1628051389082712525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7429372607844111328 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8179222034623752749, guid: e56ca47cee0046709a5fe8c787cee221,
     type: 3}
   m_PrefabInstance: {fileID: 1628051389082712525}
   m_PrefabAsset: {fileID: 0}

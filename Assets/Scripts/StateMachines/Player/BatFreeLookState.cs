@@ -9,6 +9,9 @@ public class BatFreeLookState : PlayerBaseState
 {
     private float colliderVerticalPosition, colliderHeight;
     private Vector3 movement;
+
+    Gamepad gamepad => stateMachine.InputReader.CurrentGamepad;
+    
     public BatFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -41,6 +44,11 @@ public class BatFreeLookState : PlayerBaseState
         if (movement != Vector3.zero)
         {
             FaceMovementDirection(movement);
+        }
+
+        if (gamepad != null)
+        {
+            stateMachine.BatAnimator.SetFloat("FlightSpeed", 1f + (gamepad.leftStick.ReadValue().magnitude));
         }
     }
 
