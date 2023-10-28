@@ -25,6 +25,16 @@ public abstract class PlayerBaseState : State
         stateMachine.IsIdle = false;
     }
 
+    protected void OnChangeCharacterBat()
+    {
+        stateMachine.SwitchState(new BatFreeLookState(stateMachine));
+    }
+
+    protected void OnChangeCharacterDeborah()
+    {
+        stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+    }
+
     protected void SetCameraControls()
     {
         gComposer = stateMachine.TargetingCamera.GetCinemachineComponent<CinemachineGroupComposer>();

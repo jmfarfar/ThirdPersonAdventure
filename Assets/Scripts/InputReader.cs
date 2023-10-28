@@ -13,7 +13,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action CancelEvent;
     public event Action DodgeEvent;
     public event Action<int> AttackEvent;
-    public event Action<int> ChangeCharacterEvent;
+    public event Action ChangeCharacterEvent;
     private Controls controls;
 
     private void OnEnable()
@@ -95,12 +95,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnChangeCharacter(InputAction.CallbackContext context)
     {
-        if (!context.started) { return; }
-
-        Vector2 inputDirection = context.ReadValue<Vector2>();
-        int directionIndex;
-        directionIndex = inputDirection.y != 0 ? (int)Mathf.Abs(MathF.Round(inputDirection.y) - 1) :
-            (int)Mathf.Abs(MathF.Round(inputDirection.x) - 2);
-        ChangeCharacterEvent?.Invoke(directionIndex);
+        if (context.started)
+        {
+            ChangeCharacterEvent?.Invoke();
+        }
     }
 }

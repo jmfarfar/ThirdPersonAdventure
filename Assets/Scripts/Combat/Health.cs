@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     private float stunTimeMultiplier;
     public event Action<float> OnStun;
     public event Action OnDie;
-
+    public bool IsDead => health ==0; //**eSantiago
     private void Start()
     {
         health = maxHealth;
