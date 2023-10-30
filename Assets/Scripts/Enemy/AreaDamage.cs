@@ -8,7 +8,8 @@ public class AreaDamage : MonoBehaviour
          [SerializeField] private Collider myCollider;
     private List<Collider> alreadyCollidedWith = new List<Collider>();
     [SerializeField] private int damage =15;
-   [SerializeField] private float knockback =40;   
+   [SerializeField] private float knockback =40;
+    [SerializeField] private float stunTime = 0.2f;
 
     void OnEnable()
     {
@@ -26,7 +27,7 @@ public class AreaDamage : MonoBehaviour
 
         if (other.TryGetComponent<Health>(out Health health))
         {            
-            health.DealDamage(damage,knockback);
+            health.DealDamage(damage, stunTime);
         }
 
         if (other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))

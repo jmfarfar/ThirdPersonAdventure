@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6277375282048817393}
   - component: {fileID: 113024970795820400}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 3841668436049859687}
   - component: {fileID: 8723701847797990332}
   - component: {fileID: 8305898641993858797}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Orb2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4985,7 +4985,7 @@ GameObject:
   - component: {fileID: 4420745493772606259}
   - component: {fileID: 1036224431661597517}
   - component: {fileID: 654983624143210605}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MagicAttack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5071,4 +5071,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCollider: {fileID: 4420745493772606259}
   damage: 10
-  knockback: 20
+  knockback: 2
+  stunTime: 0.2

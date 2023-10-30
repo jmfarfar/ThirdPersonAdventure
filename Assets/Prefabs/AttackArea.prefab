@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9062160484937360710}
   - component: {fileID: 3404744006809349563}
   - component: {fileID: 8264660824198176254}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: CC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4849,7 +4849,7 @@ GameObject:
   - component: {fileID: 4112455597479703169}
   - component: {fileID: 1812619162969184087}
   - component: {fileID: 455676121894565082}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AttackArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4893,6 +4893,7 @@ MonoBehaviour:
   myCollider: {fileID: 455676121894565082}
   damage: 15
   knockback: 30
+  stunTime: 0.2
 --- !u!135 &455676121894565082
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4925,7 +4926,7 @@ GameObject:
   - component: {fileID: 7680454135127609248}
   - component: {fileID: 3810069083934325558}
   - component: {fileID: 8392323896478080063}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: inner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9762,7 +9763,7 @@ GameObject:
   - component: {fileID: 1392413649694574183}
   - component: {fileID: 7836691488330127716}
   - component: {fileID: 6714707465130167137}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: outer (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14599,7 +14600,7 @@ GameObject:
   - component: {fileID: 6186118445260081031}
   - component: {fileID: 2492135987523104375}
   - component: {fileID: 1515426176164153612}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: CCW (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19437,7 +19438,7 @@ GameObject:
   - component: {fileID: 4021476759704384532}
   - component: {fileID: 1447923291461134258}
   - component: {fileID: 2824210079371564924}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24274,7 +24275,7 @@ GameObject:
   - component: {fileID: 4920382880263927739}
   - component: {fileID: 470424310553662407}
   - component: {fileID: 376706534272294187}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: CCW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29112,7 +29113,7 @@ GameObject:
   - component: {fileID: 3072911601468644264}
   - component: {fileID: 5824256296419358438}
   - component: {fileID: 5703809022435866627}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

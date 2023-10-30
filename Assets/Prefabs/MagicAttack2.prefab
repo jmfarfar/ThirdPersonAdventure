@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3749969848108274317}
   - component: {fileID: 3897991003879149885}
   - component: {fileID: 253648320407959050}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 7111404354514754299}
   - component: {fileID: 3553083529538358516}
   - component: {fileID: 5151093696064574778}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Orb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4944,7 +4944,7 @@ GameObject:
   - component: {fileID: 8028164508505524935}
   - component: {fileID: 4102690070867580276}
   - component: {fileID: 5257288730000279317}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Orb2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9772,7 +9772,7 @@ GameObject:
   - component: {fileID: 307202435387520270}
   - component: {fileID: 2891849989341868584}
   - component: {fileID: 4727525737091520164}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Orb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14601,7 +14601,7 @@ GameObject:
   - component: {fileID: 5039957949074639181}
   - component: {fileID: 8757461593682181683}
   - component: {fileID: 2396580029309462227}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MagicAttack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14691,7 +14691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCollider: {fileID: 8757461593682181683}
   damage: 20
-  knockback: 40
+  knockback: 4
+  stunTime: 0.2
 --- !u!1 &7389339069520604016
 GameObject:
   m_ObjectHideFlags: 0
@@ -14703,7 +14704,7 @@ GameObject:
   - component: {fileID: 2768113918023785710}
   - component: {fileID: 4229335290971822407}
   - component: {fileID: 8250362117564163631}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Electricity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19532,7 +19533,7 @@ GameObject:
   - component: {fileID: 4345955006900244692}
   - component: {fileID: 5665153451526133141}
   - component: {fileID: 5134021759294440853}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}

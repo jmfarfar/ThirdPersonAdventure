@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 7188286106752617326}
   - component: {fileID: 3070753212717747612}
   - component: {fileID: 7539599463670114629}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Gunman
   m_TagString: Untagged
   m_Icon: {fileID: 0}

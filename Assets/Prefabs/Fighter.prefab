@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1062782667896973755}
   - component: {fileID: 1704948365262194671}
   - component: {fileID: 3963390057189720104}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Fighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

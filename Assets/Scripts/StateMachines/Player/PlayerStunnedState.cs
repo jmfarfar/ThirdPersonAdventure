@@ -33,6 +33,8 @@ public class PlayerStunnedState : PlayerBaseState
         {
             ReturnToLocomotion();
         }
+
+        Move(deltaTime);
     }
     public override void Exit()
     {
