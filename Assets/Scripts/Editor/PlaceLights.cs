@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Video;
 
 [ExecuteInEditMode]
 public class PlaceLights : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlaceLights : MonoBehaviour
     [SerializeField] private bool placeLights;
     [SerializeField] private Transform streetLampParentObject;
     [SerializeField] private GameObject lightRigPrefab;
+    [SerializeField] private Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +30,8 @@ public class PlaceLights : MonoBehaviour
 
                 if (instanceGameObject.TryGetComponent<Transform>(out Transform t))
                 {
-                    t.position = c.position;
-                    t.rotation = Quaternion.identity;
+                    t.position = c.position + new Vector3(c.forward.x * offset.x, c.forward.y * offset.y, c.forward.z * offset.z);
+                    t.rotation = c.rotation;
                 }
             }
 

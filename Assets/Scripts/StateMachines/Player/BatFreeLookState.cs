@@ -7,7 +7,7 @@ using UnityEngine.Video;
 
 public class BatFreeLookState : PlayerBaseState
 {
-    private float colliderVerticalPosition, colliderHeight;
+    private float colliderVerticalPosition, colliderHeight, colliderRadius;
     private Vector3 movement;
 
     Gamepad gamepad => stateMachine.InputReader.CurrentGamepad;
@@ -24,9 +24,11 @@ public class BatFreeLookState : PlayerBaseState
 
         colliderVerticalPosition = stateMachine.CharacterController.center.y;
         colliderHeight = stateMachine.CharacterController.height;
+        colliderRadius = stateMachine.CharacterController.radius;
 
         stateMachine.CharacterController.center = new Vector3(0f, 1.3f);
         stateMachine.CharacterController.height = 0.4f;
+        stateMachine.CharacterController.radius = 0.4f;
 
         base.Enter();
 
@@ -61,6 +63,7 @@ public class BatFreeLookState : PlayerBaseState
 
         stateMachine.CharacterController.center = new Vector3(0f, colliderVerticalPosition);
         stateMachine.CharacterController.height = colliderHeight;
+        stateMachine.CharacterController.radius = colliderRadius;
 
         stateMachine.InputReader.ChangeCharacterEvent -= OnChangeCharacterDeborah;
 
