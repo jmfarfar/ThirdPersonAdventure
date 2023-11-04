@@ -605,6 +605,55 @@ Transform:
   - {fileID: 2745540169341664092}
   m_Father: {fileID: 2340419225934516520}
   m_LocalEulerAnglesHint: {x: 24.186647, y: 18.338757, z: 7.0034475}
+--- !u!1 &2824953515853311355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7823176261509995019}
+  - component: {fileID: 7467293983093266282}
+  m_Layer: 0
+  m_Name: HealthOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7823176261509995019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2824953515853311355}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3225271478930763322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7467293983093266282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2824953515853311355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0
+  sharedProfile: {fileID: 11400000, guid: 941cb62f78ccbe77bbc0eba1eadc0bbd, type: 2}
 --- !u!1 &2963952519766991388
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2273,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 395643112406569576, guid: 76399c438c68021428a72f4455da3d26,
+        type: 3}
+      propertyPath: healthOverlay
+      value: 
+      objectReference: {fileID: 7467293983093266282}
+    - target: {fileID: 395643112406569576, guid: 76399c438c68021428a72f4455da3d26,
+        type: 3}
+      propertyPath: healCooldownTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 395643112406569576, guid: 76399c438c68021428a72f4455da3d26,
+        type: 3}
+      propertyPath: autoHealingAmount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1247024733398052586, guid: 76399c438c68021428a72f4455da3d26,
         type: 3}
       propertyPath: m_Enabled
@@ -2325,6 +2389,10 @@ PrefabInstance:
     - {fileID: 5247304563234591834, guid: 76399c438c68021428a72f4455da3d26, type: 3}
     - {fileID: 9120789618395361875, guid: 76399c438c68021428a72f4455da3d26, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3101695333478678560, guid: 76399c438c68021428a72f4455da3d26,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 7823176261509995019}
     - targetCorrespondingSourceObject: {fileID: 3101695333478678560, guid: 76399c438c68021428a72f4455da3d26,
         type: 3}
       insertIndex: -1
