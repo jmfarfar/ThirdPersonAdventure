@@ -15,9 +15,10 @@ public class Health : MonoBehaviour
     private float stunTimeMultiplier;
     public event Action<float> OnStun;
     public event Action OnDie;
+
     private float healCooldown;
     private bool canHeal;
-
+    public bool IsDead => health ==0; //**eSantiago
 
     private void Start()
     {
