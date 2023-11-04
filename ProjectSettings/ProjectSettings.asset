@@ -804,8 +804,8 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: USE_CINEMACHINE;USE_NEW_INPUT;USE_TIMELINE
-    WebGL: USE_CINEMACHINE;USE_NEW_INPUT;USE_TIMELINE
+    Standalone: USE_CINEMACHINE;USE_NEW_INPUT;USE_TIMELINE;USE_PHYSICS2D
+    WebGL: USE_CINEMACHINE;USE_NEW_INPUT;USE_TIMELINE;USE_PHYSICS2D
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

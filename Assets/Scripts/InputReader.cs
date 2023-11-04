@@ -14,6 +14,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action DodgeEvent;
     public event Action<int> AttackEvent;
     public event Action ChangeCharacterEvent;
+    public event Action QuestToggleEvent;
     private Controls controls;
 
     private void OnEnable()
@@ -83,7 +84,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnBlock(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed)
         {
             isBlocking = true;
         }
@@ -98,6 +99,15 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if (context.started)
         {
             ChangeCharacterEvent?.Invoke();
+        }
+    }
+
+    public void OnQuestToggle(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+
+            QuestToggleEvent?.Invoke();
         }
     }
 }

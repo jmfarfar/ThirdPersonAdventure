@@ -53,6 +53,15 @@ public partial class @DemoInputControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QuestLog"",
+                    ""type"": ""Value"",
+                    ""id"": ""4ee9fa25-9ea9-409d-bb00-a63eec3f5c86"",
+                    ""expectedControlType"": ""Dpad"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -189,6 +198,39 @@ public partial class @DemoInputControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""9ee8b080-2498-4a66-980e-669debef28bc"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""5517b067-1d3a-41ff-9c83-44c79706baea"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""cb184667-3add-4c7a-9ff2-b83958c35a74"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""6de4a513-0301-4138-972a-db7bccc7e316"",
                     ""path"": ""<Keyboard>/space"",
@@ -209,6 +251,17 @@ public partial class @DemoInputControls: IInputActionCollection2, IDisposable
                     ""action"": ""Fire1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""511bf25f-93d2-4b39-875e-35caed3d582d"",
+                    ""path"": ""<XInputController>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QuestLog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -220,6 +273,7 @@ public partial class @DemoInputControls: IInputActionCollection2, IDisposable
         m_DemoActionMap_Horizontal = m_DemoActionMap.FindAction("Horizontal", throwIfNotFound: true);
         m_DemoActionMap_Vertical = m_DemoActionMap.FindAction("Vertical", throwIfNotFound: true);
         m_DemoActionMap_Fire1 = m_DemoActionMap.FindAction("Fire1", throwIfNotFound: true);
+        m_DemoActionMap_QuestLog = m_DemoActionMap.FindAction("QuestLog", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,6 +338,7 @@ public partial class @DemoInputControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_DemoActionMap_Horizontal;
     private readonly InputAction m_DemoActionMap_Vertical;
     private readonly InputAction m_DemoActionMap_Fire1;
+    private readonly InputAction m_DemoActionMap_QuestLog;
     public struct DemoActionMapActions
     {
         private @DemoInputControls m_Wrapper;
@@ -291,6 +346,7 @@ public partial class @DemoInputControls: IInputActionCollection2, IDisposable
         public InputAction @Horizontal => m_Wrapper.m_DemoActionMap_Horizontal;
         public InputAction @Vertical => m_Wrapper.m_DemoActionMap_Vertical;
         public InputAction @Fire1 => m_Wrapper.m_DemoActionMap_Fire1;
+        public InputAction @QuestLog => m_Wrapper.m_DemoActionMap_QuestLog;
         public InputActionMap Get() { return m_Wrapper.m_DemoActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -309,6 +365,9 @@ public partial class @DemoInputControls: IInputActionCollection2, IDisposable
             @Fire1.started += instance.OnFire1;
             @Fire1.performed += instance.OnFire1;
             @Fire1.canceled += instance.OnFire1;
+            @QuestLog.started += instance.OnQuestLog;
+            @QuestLog.performed += instance.OnQuestLog;
+            @QuestLog.canceled += instance.OnQuestLog;
         }
 
         private void UnregisterCallbacks(IDemoActionMapActions instance)
@@ -322,6 +381,9 @@ public partial class @DemoInputControls: IInputActionCollection2, IDisposable
             @Fire1.started -= instance.OnFire1;
             @Fire1.performed -= instance.OnFire1;
             @Fire1.canceled -= instance.OnFire1;
+            @QuestLog.started -= instance.OnQuestLog;
+            @QuestLog.performed -= instance.OnQuestLog;
+            @QuestLog.canceled -= instance.OnQuestLog;
         }
 
         public void RemoveCallbacks(IDemoActionMapActions instance)
@@ -344,5 +406,6 @@ public partial class @DemoInputControls: IInputActionCollection2, IDisposable
         void OnHorizontal(InputAction.CallbackContext context);
         void OnVertical(InputAction.CallbackContext context);
         void OnFire1(InputAction.CallbackContext context);
+        void OnQuestLog(InputAction.CallbackContext context);
     }
 }

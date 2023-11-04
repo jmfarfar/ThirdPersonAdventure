@@ -623,6 +623,14 @@ PlayableDirector:
     value: {fileID: 37278815318484362}
   - key: {fileID: -7823149628546763173, guid: c5bdcf15781faa84e8363fb8c7937aed, type: 2}
     value: {fileID: 7598016743407507085}
+  - key: {fileID: 7536466335394937633, guid: c5bdcf15781faa84e8363fb8c7937aed, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8299369745399984585, guid: c5bdcf15781faa84e8363fb8c7937aed, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -853281419545165288, guid: c5bdcf15781faa84e8363fb8c7937aed, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8960201672734790213, guid: c5bdcf15781faa84e8363fb8c7937aed, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - fbcd2cdd48db0d141b0b8568b34801cd: {fileID: 1783153281603828293}

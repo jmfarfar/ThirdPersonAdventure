@@ -11,7 +11,7 @@ public class BatFreeLookState : PlayerBaseState
     private Vector3 movement;
 
     Gamepad gamepad => stateMachine.InputReader.CurrentGamepad;
-    
+
     public BatFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -19,6 +19,7 @@ public class BatFreeLookState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.InputReader.ChangeCharacterEvent += OnChangeCharacterDeborah;
+        stateMachine.InputReader.QuestToggleEvent += OnQuestToggle;
 
         stateMachine.ForceReceiver.enabled = false;
 
@@ -27,8 +28,6 @@ public class BatFreeLookState : PlayerBaseState
 
         stateMachine.CharacterController.center = new Vector3(0f, 1.3f);
         stateMachine.CharacterController.height = 0.4f;
-
-        base.Enter();
 
         ChangeModel();
 
@@ -50,11 +49,11 @@ public class BatFreeLookState : PlayerBaseState
         {
             stateMachine.BatAnimator.SetFloat("FlightSpeed", 1f + (gamepad.leftStick.ReadValue().magnitude));
         }
+
     }
 
     public override void Exit()
     {
-        base.Exit();
         ChangeModel();
 
         stateMachine.ChangeToBatEvent?.Invoke(false);
@@ -63,6 +62,7 @@ public class BatFreeLookState : PlayerBaseState
         stateMachine.CharacterController.height = colliderHeight;
 
         stateMachine.InputReader.ChangeCharacterEvent -= OnChangeCharacterDeborah;
+        stateMachine.InputReader.QuestToggleEvent -= OnQuestToggle;
 
         stateMachine.ForceReceiver.enabled = true;
 

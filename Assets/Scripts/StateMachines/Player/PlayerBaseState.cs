@@ -15,14 +15,11 @@ public abstract class PlayerBaseState : State
         this.stateMachine = stateMachine;
     }
 
-    public override void Enter()
+    protected void OnQuestToggle()
     {
-        stateMachine.IsIdle = true;
-    }
-
-    public override void Exit()
-    {
-        stateMachine.IsIdle = false;
+        if (stateMachine.QuestLogWindowHotkey.runtimeQuestLogWindow == null)
+            return;
+        if (stateMachine.QuestLogWindowHotkey.runtimeQuestLogWindow.isOpen) stateMachine.QuestLogWindowHotkey.runtimeQuestLogWindow.Close(); else stateMachine.QuestLogWindowHotkey.runtimeQuestLogWindow.Open();
     }
 
     protected void OnChangeCharacterBat()

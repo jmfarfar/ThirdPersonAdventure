@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using PixelCrushers.DialogueSystem;
 
 public class PlayerStateMachine : StateMachine
 {
@@ -25,6 +26,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float DodgeSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
+    [field: SerializeField] public QuestLogWindowHotkey QuestLogWindowHotkey { get; private set; }
     public Transform MainCameraTransform { get; private set; }
 
     public States currentStateID;

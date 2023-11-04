@@ -7,6 +7,7 @@ public class Activator5 : MonoBehaviour
     [SerializeField] private CutsceneCatalog cutscene;
     [SerializeField] private GameObject cutsceneDeborah;
     [SerializeField] private GameObject cutsceneDeborah2;
+    [SerializeField] private GameObject nextQuestActivator;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,8 +24,20 @@ public class Activator5 : MonoBehaviour
                     inputReader2.enabled = false;
                 }
             }
-            SceneManager.Instance.StartTimeline((int)cutscene);
-            Destroy(this);
+
+            if (nextQuestActivator != null)
+                nextQuestActivator.SetActive(true);
+
+            if (cutscene != CutsceneCatalog.None)
+            {
+                SceneManager.Instance.StartTimeline((int)cutscene);
+                this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+            else
+            {
+                this.gameObject.GetComponent<BoxCollider>().enabled = false;
+
+            }
         }
     }
 }
