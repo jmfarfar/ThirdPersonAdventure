@@ -18,6 +18,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action QuestToggleEvent;
     private Controls controls;
 
+     [SerializeField] private InventoryManager Inventory; //eSantiago | NOV 02.11.2023
     private void OnEnable()
     {
         CurrentGamepad = Gamepad.current;
@@ -119,4 +120,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
             QuestToggleEvent?.Invoke();
         }
     }
+
+    public void OnShowInventory(InputAction.CallbackContext context) //eSantiago | NOV 02.11.2023
+    {
+       if (!context.performed) { return; }
+        Inventory.OnShowInventory(); 
+    }    
 }
