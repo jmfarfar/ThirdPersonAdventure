@@ -14,6 +14,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action DodgeEvent;
     public event Action<int> AttackEvent;
     public event Action ChangeCharacterEvent;
+    public event Action InteractEvent;
     private Controls controls;
 
     private void OnEnable()
@@ -98,6 +99,14 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if (context.started)
         {
             ChangeCharacterEvent?.Invoke();
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            InteractEvent?.Invoke();
         }
     }
 }
