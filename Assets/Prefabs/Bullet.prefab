@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3719049053169234289}
   - component: {fileID: 4697616455496908798}
   - component: {fileID: -6464606547727476293}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,3 +151,4 @@ MonoBehaviour:
   myCollider: {fileID: 3719049053169234289}
   damage: 10
   knockback: 5
+  stunTime: 0.2

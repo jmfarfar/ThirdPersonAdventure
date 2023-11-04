@@ -107,6 +107,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QuestToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""ffe6e915-05df-4867-ba37-0b702aa9b16e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -296,6 +305,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b7910c2-b435-41fe-84b7-1668c947a5f4"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QuestToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -341,6 +361,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
         m_Player_ChangeCharacter = m_Player.FindAction("ChangeCharacter", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_QuestToggle = m_Player.FindAction("QuestToggle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -411,6 +432,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Block;
     private readonly InputAction m_Player_ChangeCharacter;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_QuestToggle;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -424,6 +446,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Block => m_Wrapper.m_Player_Block;
         public InputAction @ChangeCharacter => m_Wrapper.m_Player_ChangeCharacter;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @QuestToggle => m_Wrapper.m_Player_QuestToggle;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -460,6 +483,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @QuestToggle.started += instance.OnQuestToggle;
+            @QuestToggle.performed += instance.OnQuestToggle;
+            @QuestToggle.canceled += instance.OnQuestToggle;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -491,6 +517,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @QuestToggle.started -= instance.OnQuestToggle;
+            @QuestToggle.performed -= instance.OnQuestToggle;
+            @QuestToggle.canceled -= instance.OnQuestToggle;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -537,5 +566,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnBlock(InputAction.CallbackContext context);
         void OnChangeCharacter(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnQuestToggle(InputAction.CallbackContext context);
     }
 }

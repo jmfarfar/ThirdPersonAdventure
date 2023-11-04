@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
    [SerializeField] private Collider myCollider;
    [SerializeField] private int damage =10;
    [SerializeField] private float knockback =40;
+    [SerializeField] private float stunTime= 0.2f;
 
     private List<Collider> alreadyCollidedWith = new List<Collider>();
 
@@ -26,7 +27,7 @@ public class Bullet : MonoBehaviour
 
         if (other.TryGetComponent<Health>(out Health health))
         {            
-            health.DealDamage(damage,knockback);
+            health.DealDamage(damage, stunTime);
             Destroy(gameObject);
         }
 

@@ -15,7 +15,7 @@ public class PlayerTargetingState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.currentStateID = PlayerStateMachine.States.LOCOMOTION;
-        base.Enter();
+        
         SetCameraControls();
         stateMachine.InputReader.DodgeEvent += OnDodge;
         stateMachine.InputReader.AttackEvent += OnAttack;
@@ -50,7 +50,7 @@ public class PlayerTargetingState : PlayerBaseState
 
     public override void Exit()
     {
-        base.Exit();
+        
         stateMachine.InputReader.AttackEvent -= OnAttack;
         stateMachine.InputReader.DodgeEvent -= OnDodge;
         stateMachine.InputReader.CancelEvent -= OnCancel;

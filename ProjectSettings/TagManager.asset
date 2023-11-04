@@ -16,6 +16,10 @@ TagManager:
   - 
   - 
   - 
+  - Ground
+  - Enemy
+  - Bloodsight
+  - Player
   - 
   - 
   - 

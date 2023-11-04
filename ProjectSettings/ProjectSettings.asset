@@ -147,7 +147,6 @@ PlayerSettings:
   isWsaHolographicRemotingEnabled: 0
   enableFrameTimingStats: 0
   enableOpenGLProfilerGPURecorders: 1
-  allowHDRDisplaySupport: 0
   useHDRDisplay: 0
   hdrBitDepth: 0
   m_ColorGamuts: 00000000
@@ -694,6 +693,7 @@ PlayerSettings:
   switchSocketBufferEfficiency: 4
   switchSocketInitializeEnabled: 1
   switchNetworkInterfaceManagerInitializeEnabled: 1
+  switchPlayerConnectionEnabled: 1
   switchUseNewStyleFilepaths: 0
   switchUseLegacyFmodPriorities: 1
   switchUseMicroSleepForYield: 1
@@ -804,8 +804,8 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: TMP_PRESENT;USE_CINEMACHINE;USE_NEW_INPUT;USE_TIMELINE
-    WebGL: TMP_PRESENT;USE_CINEMACHINE;USE_NEW_INPUT;USE_TIMELINE
+    Standalone: USE_CINEMACHINE;USE_NEW_INPUT;USE_TIMELINE;USE_PHYSICS2D
+    WebGL: USE_CINEMACHINE;USE_NEW_INPUT;USE_TIMELINE;USE_PHYSICS2D
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

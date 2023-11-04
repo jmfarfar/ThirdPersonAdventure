@@ -16,14 +16,13 @@ public class PlayerFreeLookState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.currentStateID = PlayerStateMachine.States.LOCOMOTION;
-        base.Enter();
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.InputReader.DodgeEvent += OnDodge;
         stateMachine.InputReader.AttackEvent += OnAttack;
         stateMachine.InputReader.ChangeCharacterEvent += OnChangeCharacterBat;
+        stateMachine.InputReader.QuestToggleEvent += OnQuestToggle;
         stateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, 0.1f);
     }
-
 
     public override void Tick(float deltaTime)
     {
@@ -47,15 +46,16 @@ public class PlayerFreeLookState : PlayerBaseState
 
         stateMachine.Animator.SetFloat(freeLookSpeedHash, movementSpeed, animatorDampTime, deltaTime);
         FaceMovementDirection(movement);
+
     }
 
     public override void Exit()
     {
-        base.Exit();
         stateMachine.InputReader.DodgeEvent -= OnDodge;
         stateMachine.InputReader.TargetEvent -= OnTarget;
         stateMachine.InputReader.AttackEvent -= OnAttack;
         stateMachine.InputReader.ChangeCharacterEvent -= OnChangeCharacterBat;
+        stateMachine.InputReader.QuestToggleEvent -= OnQuestToggle;
     }
 
     private void OnDodge()
