@@ -100,15 +100,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""1b7f3054-5997-4503-90de-357b49520676"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""QuestToggle"",
                     ""type"": ""Button"",
                     ""id"": ""ffe6e915-05df-4867-ba37-0b702aa9b16e"",
@@ -297,17 +288,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c2668bce-d990-4c24-9add-878592dccdb7"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""9b7910c2-b435-41fe-84b7-1668c947a5f4"",
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
@@ -360,7 +340,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_AttackHeavy = m_Player.FindAction("AttackHeavy", throwIfNotFound: true);
         m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
         m_Player_ChangeCharacter = m_Player.FindAction("ChangeCharacter", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_QuestToggle = m_Player.FindAction("QuestToggle", throwIfNotFound: true);
     }
 
@@ -431,7 +410,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AttackHeavy;
     private readonly InputAction m_Player_Block;
     private readonly InputAction m_Player_ChangeCharacter;
-    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_QuestToggle;
     public struct PlayerActions
     {
@@ -445,7 +423,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @AttackHeavy => m_Wrapper.m_Player_AttackHeavy;
         public InputAction @Block => m_Wrapper.m_Player_Block;
         public InputAction @ChangeCharacter => m_Wrapper.m_Player_ChangeCharacter;
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @QuestToggle => m_Wrapper.m_Player_QuestToggle;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -480,9 +457,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ChangeCharacter.started += instance.OnChangeCharacter;
             @ChangeCharacter.performed += instance.OnChangeCharacter;
             @ChangeCharacter.canceled += instance.OnChangeCharacter;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
             @QuestToggle.started += instance.OnQuestToggle;
             @QuestToggle.performed += instance.OnQuestToggle;
             @QuestToggle.canceled += instance.OnQuestToggle;
@@ -514,9 +488,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ChangeCharacter.started -= instance.OnChangeCharacter;
             @ChangeCharacter.performed -= instance.OnChangeCharacter;
             @ChangeCharacter.canceled -= instance.OnChangeCharacter;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
             @QuestToggle.started -= instance.OnQuestToggle;
             @QuestToggle.performed -= instance.OnQuestToggle;
             @QuestToggle.canceled -= instance.OnQuestToggle;
@@ -565,7 +536,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnAttackHeavy(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
         void OnChangeCharacter(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
         void OnQuestToggle(InputAction.CallbackContext context);
     }
 }
