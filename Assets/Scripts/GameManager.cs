@@ -33,38 +33,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Restart()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("City");
-
-    }
-
-    public void Begin()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("DeborahsDepartment");
-
-    }
-
-    public void MainMenu()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
-
-    }
-
-    public void Credits()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Credits");
-    }
-
-    public void Controls()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Controls");
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
-    }
+    
 
     private void OnDisable()
     {

@@ -4,10 +4,13 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour, Controls.IPauseMenuActions
 {
-    public GameObject pausePanel;
+
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private Selectable firstElementToSelect;
     private Controls controls;
 
     private void Start()
@@ -45,8 +48,17 @@ public class PauseMenu : MonoBehaviour, Controls.IPauseMenuActions
     {
         if (context.started)
         {
-            Time.timeScale = 0f;
-            pausePanel.SetActive(true);
+            if (!pausePanel.activeSelf)
+            {
+                firstElementToSelect?.Select();
+                Time.timeScale = 0f;
+                pausePanel.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                pausePanel.SetActive(false);
+            }
 
         }
     }

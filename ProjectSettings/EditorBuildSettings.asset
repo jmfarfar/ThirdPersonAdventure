@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Game/MainMenu.unity
     guid: f5692f2a97ddf5d3e8cc6cb718044f5b
   - enabled: 1
-    path: Assets/Scenes/DeborahsDepartment.unity
+    path: Assets/Scenes/Game/DeborahsDepartment.unity
     guid: ab224d59a6446fb72a4a83f66d11a67e
   - enabled: 1
-    path: Assets/Scenes/City.unity
+    path: Assets/Scenes/Game/City.unity
     guid: 56041f675c16f214994e3a27d10d8d68
   - enabled: 1
-    path: Assets/Scenes/BossRoom.unity
+    path: Assets/Scenes/Game/BossRoom.unity
     guid: d3e08022edf0aa83a9b032e34c71fe4b
   - enabled: 1
-    path: Assets/Scenes/Credits.unity
+    path: Assets/Scenes/Game/Credits.unity
     guid: 8b50d71c410e8e14a951d9151c27b35e
   - enabled: 1
-    path: Assets/Scenes/Controls.unity
+    path: Assets/Scenes/Game/Controls.unity
     guid: b5e75eb469b8c9f4daefc1817cb3537c
   m_configObjects: {}

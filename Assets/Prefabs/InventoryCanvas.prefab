@@ -704,6 +704,8 @@ MonoBehaviour:
   - {fileID: 3785677666374237745}
   - {fileID: 209044148196513366}
   - {fileID: 14798728955714161}
+  PickUpText: {fileID: 0}
+  miniMap: {fileID: 0}
 --- !u!1 &5644253369962838647
 GameObject:
   m_ObjectHideFlags: 0
