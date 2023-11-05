@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -19,6 +20,7 @@ public class BatFreeLookState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.InputReader.ChangeCharacterEvent += OnChangeCharacterDeborah;
+        stateMachine.InputReader.AttackEvent += OnBatAttack;
 
         stateMachine.ForceReceiver.enabled = false;
 
@@ -35,6 +37,11 @@ public class BatFreeLookState : PlayerBaseState
         ChangeModel();
 
         stateMachine.ChangeToBatEvent?.Invoke(true);
+    }
+
+    private void OnBatAttack(int obj)
+    {
+        stateMachine.SwitchState(new BatBloodCryState(stateMachine));
     }
 
     public override void Tick(float deltaTime)
@@ -66,6 +73,7 @@ public class BatFreeLookState : PlayerBaseState
         stateMachine.CharacterController.radius = colliderRadius;
 
         stateMachine.InputReader.ChangeCharacterEvent -= OnChangeCharacterDeborah;
+        stateMachine.InputReader.AttackEvent += OnBatAttack;
 
         stateMachine.ForceReceiver.enabled = true;
 

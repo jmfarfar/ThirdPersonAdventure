@@ -98,15 +98,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""1b7f3054-5997-4503-90de-357b49520676"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -285,17 +276,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""ChangeCharacter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c2668bce-d990-4c24-9add-878592dccdb7"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -340,7 +320,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_AttackHeavy = m_Player.FindAction("AttackHeavy", throwIfNotFound: true);
         m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
         m_Player_ChangeCharacter = m_Player.FindAction("ChangeCharacter", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -410,7 +389,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AttackHeavy;
     private readonly InputAction m_Player_Block;
     private readonly InputAction m_Player_ChangeCharacter;
-    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -423,7 +401,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @AttackHeavy => m_Wrapper.m_Player_AttackHeavy;
         public InputAction @Block => m_Wrapper.m_Player_Block;
         public InputAction @ChangeCharacter => m_Wrapper.m_Player_ChangeCharacter;
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -457,9 +434,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ChangeCharacter.started += instance.OnChangeCharacter;
             @ChangeCharacter.performed += instance.OnChangeCharacter;
             @ChangeCharacter.canceled += instance.OnChangeCharacter;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -488,9 +462,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ChangeCharacter.started -= instance.OnChangeCharacter;
             @ChangeCharacter.performed -= instance.OnChangeCharacter;
             @ChangeCharacter.canceled -= instance.OnChangeCharacter;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -536,6 +507,5 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnAttackHeavy(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
         void OnChangeCharacter(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
     }
 }
