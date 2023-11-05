@@ -27,10 +27,10 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Fresnel_Power: 1.48
+    - _Fresnel_Power: 1.6
     - _QueueControl: 0
     m_Colors:
-    - _Base_Color: {r: 21.361254, g: 0, b: 0, a: 0}
+    - _Base_Color: {r: 28.51895, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8914700105266407245
 MonoBehaviour:
